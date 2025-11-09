@@ -29,10 +29,10 @@ driver.get(target_url)
 #element = driver.find_element_by_css_selector(selector)
 #element.click()
  
-driver.find_element(By.NAME,"username").send_keys("yokubo@urban-web.co.jp")
+driver.find_element(By.NAME,"username").send_keys("任意のメールアドレス")
 time.sleep(1)
 # NAME属性が”password”であるHTML要素を取得し、パスワード文字列をキーボード送信
-driver.find_element(By.ID,"password").send_keys('poi1poi1')
+driver.find_element(By.ID,"password").send_keys('任意のパスワード')
 time.sleep(1)
 # CLASS属性が”sessions_button--wide”であるHTML要素を取得してクリック
 driver.find_element(By.ID,'login').click()
@@ -92,3 +92,4 @@ for date in dates:
         driver.implicitly_wait(4)
 
 driver.quit()
+
