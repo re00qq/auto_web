@@ -28,19 +28,25 @@ wait = WebDriverWait(driver, 10)
 # element = driver.find_element_by_css_selector(selector)
 # element.click()
  
+#任意のメールアドレスが入力される
 driver.find_element(By.NAME,"username").send_keys("任意のメールアドレス")
 time.sleep(4)
-# NAME属性が”password”であるHTML要素を取得し、パスワード文字列をキーボード送信
+
+# 任意のパスワードが入力される
 driver.find_element(By.ID,"password").send_keys('任意のパスワード')
 time.sleep(3)
-# CLASS属性が”sessions_button--wide”であるHTML要素を取得してクリック
+
+# ログインボタンクリック
 driver.find_element(By.ID,'login').click()
 time.sleep(3)
+
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
+#出勤簿、各種申請のボタンをクリック
 driver.find_element(By.CLASS_NAME,'btn-primary').click()
 time.sleep(3)
 
+#日付を取得
 current_date = datetime.datetime.now()
 
 # 特定の場所までスクロール
@@ -111,6 +117,7 @@ for i in range(len(rows)):
             # button.click()
             # time.sleep(4)
             
+            #各日付の鉛筆ボタンマークを選択するためのxpathを取得
             button = row.find_element(By.XPATH, './/td[1]/div/div[1]/button')
 
             # ボタンが画面内にあるようスクロール
@@ -120,25 +127,27 @@ for i in range(len(rows)):
             # JavaScriptでクリック
             driver.execute_script("arguments[0].click();", button)
             
-            # 勤怠入力
+            # 出勤時間の入力
             punch_in = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.ID, 'js-punch-in-time'))
             )
-            
             punch_in.clear()
-            punch_in.send_keys('09:30')
+            punch_in.send_keys('09:00')
             time.sleep(1)
 
+            #退勤時間の入力
             punch_out = driver.find_element(By.ID, 'js-punch-out-time')
             punch_out.clear()
-            punch_out.send_keys('18:30')
+            punch_out.send_keys('18:00')
             time.sleep(1)
 
+            #在宅勤務時間の入力
             break_time = driver.find_element(By.XPATH, '//*[@id="js-attendance-section"]/div[2]/div[2]/div/div/input')
             break_time.clear()
             break_time.send_keys('01:00')
             time.sleep(1)
 
+            #登録ボタンをクリック
             save_button = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[5]/button[1]')
             save_button.click()
             time.sleep(2)
