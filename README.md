@@ -14,12 +14,12 @@ Seleniumを活用して、ブラウザ操作を自動で行い、平日の勤怠
 
 ## 使用技術
 
-- Python 3.x
+- Python 
 - Selenium　
 - Chrome WebDriver
 
 ## 使い方
 
-1. Python環境を用意する（Python 3.12推奨）
+1. Python環境を用意する
 2. 必要なライブラリをインストール
    pip install selenium
