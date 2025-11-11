@@ -24,6 +24,7 @@ Seleniumを活用して、ブラウザ操作を自動で行い、平日の勤怠
 2. 必要なライブラリをインストール
    pip install selenium
 
-Uploading サンプル動画.mp4…
+
+https://github.com/user-attachments/assets/3cf26853-583f-4876-92d4-c6941226a988
 
 
