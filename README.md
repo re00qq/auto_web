@@ -23,3 +23,7 @@ Seleniumを活用して、ブラウザ操作を自動で行い、平日の勤怠
 1. Python環境を用意する
 2. 必要なライブラリをインストール
    pip install selenium
+
+Uploading サンプル動画.mp4…
+
+
